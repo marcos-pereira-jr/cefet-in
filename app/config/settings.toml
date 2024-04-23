@@ -1,0 +1,6 @@
+[default]
+BROKER_URL = "broker.emqx.io"
+BROKER_PORT = 1883
+BROKER_TOPIC = "check-in-class"
+MONGO_URI = "mongodb://root:example@localhost:27017/"
+MONGO_DATABASE = "cefet-in" 

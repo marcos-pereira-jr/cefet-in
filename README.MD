@@ -1,5 +1,5 @@
 
-# CHECK CEFET
+# CEFET-IN
 
 
 ## Usage

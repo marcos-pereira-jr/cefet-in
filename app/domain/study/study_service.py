@@ -1,4 +1,3 @@
-from app.domain import uncheck_user
 from app.infrastructure.database.study_repository import StudyRepository
 from app.domain.uncheck_user.uncheck_user_service import UncheckUserService
 from app.domain.study.study import Study
@@ -17,4 +16,8 @@ class StudyService():
             raise ValueError("Uncheck User not Found")
         self.logger.info(f"Linked study: {study.name} with deviceId: {uncheck.deviceId} 🎓")
         self.repository.save(study)
-    
+        uncheck.linked = True
+        self.uncheckUserService.update(uncheck)
+  
+    def find_user_by_uncheck_id(self, unId):
+        return self.repository.find_user_by_uncheck_id(unId)

@@ -3,6 +3,7 @@ from app.domain.uncheck_user.uncheck_user import UncheckUser
 from app.domain.uncheck_user.uncheck_user_service import UncheckRepository
 from typing import Optional
 
+
 class UncheckUserService():
     def __init__(self, repository : UncheckRepository):
         self.repository = repository
@@ -10,6 +11,9 @@ class UncheckUserService():
     def save(self, deviceId):
         self.repository.save(UncheckUser(deviceId))
     
+    def update(self, unchek : UncheckUser):
+        self.repository.update(unchek)
+        
     def find_one(self, id) -> Optional[UncheckUser]:    
         return self.repository.find_one(id)
         
@@ -18,3 +22,4 @@ class UncheckUserService():
     
     def find_all(self):
         return self.repository.find_all()
+    

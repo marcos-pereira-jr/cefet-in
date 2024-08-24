@@ -1,3 +1,4 @@
+from app.domain.checkin.checkin_service import CheckinService
 from app.infrastructure.database.mongo import mongo
 from app.infrastructure.database.uncheck_repository import UncheckRepository
 from app.infrastructure.database.class_repository import ClassRepository
@@ -18,5 +19,10 @@ container['studyService'] = StudyService(repository=container['studyRepository']
 container['classRepository'] = ClassRepository(container['mongo'])
 container['classService'] = ClassService(container['studyService'],container['classRepository'])
 
-container['broker'] = Checkin(container['uncheckUserService'])
+container['checkinService'] = CheckinService(uncheckUserService= container['uncheckUserService'],
+                                             classService=container['classService'],
+                                             studyService=  container['studyService']
+                                             )
+container['broker'] = Checkin(container['checkinService'])
+
 container['broker'].run()

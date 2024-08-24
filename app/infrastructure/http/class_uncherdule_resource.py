@@ -18,6 +18,6 @@ class ClassResource(Resource):
     def post(self):
         data = request.json
         classSchedule = ClassSchedule(name=data['name'], start=datetime.fromisoformat(data['start']),
-                                      end=datetime.fromisoformat(data['start']))
+                                      end=datetime.fromisoformat(data['end']))
         self.service.save(classSchedule)
         return {'message': 'class has  been created successfully.'}, 201

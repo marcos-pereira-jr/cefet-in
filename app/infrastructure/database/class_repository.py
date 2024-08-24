@@ -30,3 +30,8 @@ class ClassRepository:
             'end': classSchedule.end,
             'checkins': classSchedule.checkins
         })
+     
+    def update(self, classSchedule : ClassSchedule):
+        self.logger.info(f"update class with id: {classSchedule._id} 🧾")
+        self.mongo[settings.get("MONGO_DATABASE")][self.collection].update_one({"_id": classSchedule._id},
+                                                                               { "$set": {"checkins" : classSchedule.checkins}})

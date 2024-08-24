@@ -1,3 +1,4 @@
+from app.domain.checkin.checkin_service import CheckinService
 from app.infrastructure.util.logz import create_logger
 import threading
 import random
@@ -8,8 +9,8 @@ from app.domain.uncheck_user.uncheck_user_service import UncheckUserService
 client_id = f'publish-{random.randint(0,10000)}'
 
 class Checkin():
-    def __init__(self, uncheckUser : UncheckUserService ):
-        self.uncheckUser = uncheckUser
+    def __init__(self, checkinService : CheckinService):
+        self.checkinService = checkinService 
         self.broker = settings.get('BROKER_URL')
         self.port = settings.get('BROKER_PORT')
         self.topic = settings.get('BROKER_TOPIC')
@@ -36,7 +37,7 @@ class Checkin():
     def worker(self):
         def on_message(client, userdata, msg):
             self.logger.info(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic 📭")
-            self.uncheckUser.save(msg.payload.decode())
+            self.checkinService.checkin(msg.payload.decode())
             
         client = self.connect_mqtt()
         client.subscribe(self.topic)

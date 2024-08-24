@@ -24,6 +24,12 @@ class UncheckRepository():
         if data is None: return None
         return UncheckUser(**data)
         
+    def update(self, uncheck : UncheckUser):
+        self.logger.info(f"Update uncheck user with deviceId: {uncheck.deviceId} 📲")
+        return self.mongo[settings.get("MONGO_DATABASE")][self.collection].update_one({"_id":ObjectId(uncheck._id)},
+                                                                                      { "$set": 
+                                                                                       { 'linked':uncheck.linked}})
+
     def save(self, uncheck : UncheckUser):
         self.logger.info(f"save new uncheck user with deviceId: {uncheck.deviceId} 📲")
         return self.mongo[settings.get("MONGO_DATABASE")][self.collection].insert_one({"deviceId":uncheck.deviceId})

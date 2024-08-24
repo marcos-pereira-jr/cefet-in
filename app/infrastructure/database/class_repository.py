@@ -30,7 +30,11 @@ class ClassRepository:
             'end': classSchedule.end,
             'checkins': classSchedule.checkins
         })
-     
+    
+    def find_all(self):
+        return self.mongo[settings.get("MONGO_DATABASE")][self.collection].find({})
+    
+
     def update(self, classSchedule : ClassSchedule):
         self.logger.info(f"update class with id: {classSchedule._id} 🧾")
         self.mongo[settings.get("MONGO_DATABASE")][self.collection].update_one({"_id": classSchedule._id},

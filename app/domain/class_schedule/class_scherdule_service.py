@@ -26,3 +26,6 @@ class ClassService():
 
     def save(self, classScherdule):
         return self.classRepository.save(classScherdule)
+
+    def find_all(self):
+        return self.classRepository.find_all()

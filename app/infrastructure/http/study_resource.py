@@ -14,6 +14,15 @@ class StudyResource(Resource):
     
     def post(self):
         data = request.json 
-        study = Study(data['uncheck-user-id'] ,data['name'], data['code'])
+        study = Study(uncheckUserId=data['uncheck-user-id'] , name=data['name'], code=data['code'])
         self.service.save(study)
         return {'message': 'message has been created successfully.'}, 201
+    
+    def get(self):
+        def mapper(entity):
+            return {
+                    "id": str(entity['_id']),
+                    "name" : entity['name'],
+                    "code" : entity['code']
+                    } 
+        return [mapper(entity) for entity in self.service.find_all()]

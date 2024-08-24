@@ -21,3 +21,6 @@ class StudyService():
   
     def find_user_by_uncheck_id(self, unId):
         return self.repository.find_user_by_uncheck_id(unId)
+    
+    def find_all(self):
+        return self.repository.find_all()

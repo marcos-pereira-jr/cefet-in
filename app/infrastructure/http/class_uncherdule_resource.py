@@ -21,3 +21,21 @@ class ClassResource(Resource):
                                       end=datetime.fromisoformat(data['end']))
         self.service.save(classSchedule)
         return {'message': 'class has  been created successfully.'}, 201
+    
+    def get(self):
+        def mapper(entity):
+            def mapperCheckin(checkin):
+                return {
+                    "id": str(checkin['_id']),
+                    "name": checkin['name'],
+                    "time": checkin['time'].isoformat(),
+                    "code": checkin['code']
+                }
+            return {
+                    "id": str(entity['_id']),
+                    "name": entity['name'],
+                    "start": entity['start'].isoformat(),
+                    "end": entity['end'].isoformat(),
+                    "checkins": [mapperCheckin(checkin) for checkin in entity['checkins']]
+                    }
+        return [mapper(entity) for entity in self.service.find_all()]

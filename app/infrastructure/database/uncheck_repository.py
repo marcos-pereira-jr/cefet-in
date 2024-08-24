@@ -12,7 +12,8 @@ class UncheckRepository():
         self.logger = create_logger(f'[bold green]Repository:[bold yellow]{self.collection}[/bold yellow][/bold green]')
 
     def find_all(self):
-        return self.mongo[settings.get("MONGO_DATABASE")][self.collection].find({})
+        return self.mongo[settings.get("MONGO_DATABASE")][self.collection].find({ "$or": [ { "linked": { "$ne": True } }, 
+                                                                                          { "linked": { "$exists": False } } ] })
     
     def find_one(self, id) -> Optional[UncheckUser]:
         data = self.mongo[settings.get("MONGO_DATABASE")][self.collection].find_one({"_id": ObjectId(id)})
@@ -27,8 +28,7 @@ class UncheckRepository():
     def update(self, uncheck : UncheckUser):
         self.logger.info(f"Update uncheck user with deviceId: {uncheck.deviceId} 📲")
         return self.mongo[settings.get("MONGO_DATABASE")][self.collection].update_one({"_id":ObjectId(uncheck._id)},
-                                                                                      { "$set": 
-                                                                                       { 'linked':uncheck.linked}})
+                                                                                      { "$set": {"linked":uncheck.linked}})
 
     def save(self, uncheck : UncheckUser):
         self.logger.info(f"save new uncheck user with deviceId: {uncheck.deviceId} 📲")

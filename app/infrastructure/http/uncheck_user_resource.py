@@ -12,11 +12,6 @@ class UncheckUserResource(Resource):
         self.logger = create_logger()
         self.service = service
     
-    def post(self):
-        data = request.json 
-        deviceId = data['deviceId']
-        return {'message': 'message has been created successfully.'}, 201
-
     def get(self):
         def mapper(uncheck):
             return {

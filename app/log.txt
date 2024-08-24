@@ -1,0 +1,666 @@
+mongo mongodb://root:example@localhost:27017/
+[2024/08/24 14:28;24] INFO     [Consumer:check-in-class] 🚩  Try connect in MQTT Server                                                           uncheck_user_broker.py:30
+                      INFO     [Consumer:check-in-class] New client MQTT in broker.emqx.io:1883                                                   uncheck_user_broker.py:33
+                      INFO     [Consumer:check-in-class] Subscribe in check-in-class 📪                                                           uncheck_user_broker.py:44
+CONNECTED IN MQTT SERVER:✔️
+mongo mongodb://root:example@localhost:27017/
+[2024/08/24 14:28;39] INFO     [Consumer:check-in-class] 🚩  Try connect in MQTT Server                                                           uncheck_user_broker.py:30
+                      INFO     [Consumer:check-in-class] New client MQTT in broker.emqx.io:1883                                                   uncheck_user_broker.py:33
+                      INFO     [Consumer:check-in-class] Subscribe in check-in-class 📪                                                           uncheck_user_broker.py:44
+CONNECTED IN MQTT SERVER:✔️
+mongo mongodb://root:example@localhost:27017/
+[2024/08/24 14:35;35] INFO     [Consumer:check-in-class] 🚩  Try connect in MQTT Server                                                           uncheck_user_broker.py:30
+ * Debug mode: off
+                      INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server         _internal.py:96
+                               instead.[0m                                                                                                                                 
+                                * Running on http://127.0.0.1:5000                                                                                                         
+                      INFO     [33mPress CTRL+C to quit[0m                                                                                                  _internal.py:96
+                      INFO     [Consumer:check-in-class] New client MQTT in broker.emqx.io:1883                                                   uncheck_user_broker.py:33
+                      INFO     [Consumer:check-in-class] Subscribe in check-in-class 📪                                                           uncheck_user_broker.py:44
+CONNECTED IN MQTT SERVER:✔️
+[2024/08/24 14:35;42] INFO     [Repository:class] save new class with begin: 2024-08-24 10:00:00 and end: 2024-08-24 10:00:00 🧾                     class_repository.py:24
+                      ERROR    Exception on /class [POST]                                                                                                        app.py:838
+                               ╭────────────────────────────────────────────── Traceback (most recent call last) ──────────────────────────────────────────────╮           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/app.py:880 in full_dispatch_request              │           
+                               │                                                                                                                               │           
+                               │    877 │   │   │   request_started.send(self, _async_wrapper=self.ensure_sync)                                                │           
+                               │    878 │   │   │   rv = self.preprocess_request()                                                                             │           
+                               │    879 │   │   │   if rv is None:                                                                                             │           
+                               │ ❱  880 │   │   │   │   rv = self.dispatch_request()                                                                           │           
+                               │    881 │   │   except Exception as e:                                                                                         │           
+                               │    882 │   │   │   rv = self.handle_user_exception(e)                                                                         │           
+                               │    883 │   │   return self.finalize_request(rv)                                                                               │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/app.py:865 in dispatch_request                   │           
+                               │                                                                                                                               │           
+                               │    862 │   │   │   return self.make_default_options_response()                                                                │           
+                               │    863 │   │   # otherwise dispatch to the handler for that endpoint                                                          │           
+                               │    864 │   │   view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]                                        │           
+                               │ ❱  865 │   │   return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  #                                    │           
+                               │        type: ignore[no-any-return]                                                                                            │           
+                               │    866 │                                                                                                                      │           
+                               │    867 │   def full_dispatch_request(self) -> Response:                                                                       │           
+                               │    868 │   │   """Dispatches the request and on top of that performs request                                                  │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask_restful/__init__.py:489 in wrapper               │           
+                               │                                                                                                                               │           
+                               │   486 │   │   """                                                                                                             │           
+                               │   487 │   │   @wraps(resource)                                                                                                │           
+                               │   488 │   │   def wrapper(*args, **kwargs):                                                                                   │           
+                               │ ❱ 489 │   │   │   resp = resource(*args, **kwargs)                                                                            │           
+                               │   490 │   │   │   if isinstance(resp, ResponseBase):  # There may be a better way to test                                     │           
+                               │   491 │   │   │   │   return resp                                                                                             │           
+                               │   492 │   │   │   data, code, headers = unpack(resp)                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/views.py:110 in view                             │           
+                               │                                                                                                                               │           
+                               │   107 │   │   │   │   self = view.view_class(  # type: ignore[attr-defined]                                                   │           
+                               │   108 │   │   │   │   │   *class_args, **class_kwargs                                                                         │           
+                               │   109 │   │   │   │   )                                                                                                       │           
+                               │ ❱ 110 │   │   │   │   return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type:                                │           
+                               │       ignore[no-any-return]                                                                                                   │           
+                               │   111 │   │                                                                                                                   │           
+                               │   112 │   │   else:                                                                                                           │           
+                               │   113 │   │   │   self = cls(*class_args, **class_kwargs)                                                                     │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask_restful/__init__.py:604 in dispatch_request      │           
+                               │                                                                                                                               │           
+                               │   601 │   │   for decorator in decorators:                                                                                    │           
+                               │   602 │   │   │   meth = decorator(meth)                                                                                      │           
+                               │   603 │   │                                                                                                                   │           
+                               │ ❱ 604 │   │   resp = meth(*args, **kwargs)                                                                                    │           
+                               │   605 │   │                                                                                                                   │           
+                               │   606 │   │   if isinstance(resp, ResponseBase):  # There may be a better way to test                                         │           
+                               │   607 │   │   │   return resp                                                                                                 │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/infrastructure/http/class_uncherdule_resource.py:22 in post             │           
+                               │                                                                                                                               │           
+                               │   19 │   │   data = request.json                                                                                              │           
+                               │   20 │   │   classSchedule = ClassSchedule(name=data['name'],                                                                 │           
+                               │      start=datetime.fromisoformat(data['start']),                                                                             │           
+                               │   21 │   │   │   │   │   │   │   │   │     end=datetime.fromisoformat(data['start']))                                         │           
+                               │ ❱ 22 │   │   self.service.save(classSchedule)                                                                                 │           
+                               │   23 │   │   return {'message': 'class has  been created successfully.'}, 201                                                 │           
+                               │   24                                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/domain/class_schedule/class_scherdule_service.py:20 in save             │           
+                               │                                                                                                                               │           
+                               │   17 │   │   return self.classRepository.findCurrentClass();                                                                  │           
+                               │   18 │                                                                                                                        │           
+                               │   19 │   def save(self, classScherdule):                                                                                      │           
+                               │ ❱ 20 │   │   return self.classRepository.save(classScherdule)                                                                 │           
+                               │   21                                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/infrastructure/database/class_repository.py:25 in save                  │           
+                               │                                                                                                                               │           
+                               │   22 │                                                                                                                        │           
+                               │   23 │   def save(self, classSchedule):                                                                                       │           
+                               │   24 │   │   self.logger.info(f"save new class with begin: {classSchedule.start} and end:                                     │           
+                               │      {classSchedule.end} 🧾")                                                                                                 │           
+                               │ ❱ 25 │   │                                                                                                                    │           
+                               │      self.mongo[settings.get("MONGO_DATABASE")[self.collection]].insertOne(classSchedule)                                     │           
+                               │   26                                                                                                                          │           
+                               ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯           
+                               TypeError: string indices must be integers, not 'str'                                                                                       
+                      INFO     127.0.0.1 - - [24/Aug/2024 14:35:42] "[35m[1mPOST /class HTTP/1.1[0m" 500 -                                                  _internal.py:96
+mongo mongodb://root:example@localhost:27017/
+[2024/08/24 14:56;50] INFO     [Consumer:check-in-class] 🚩  Try connect in MQTT Server                                                           uncheck_user_broker.py:30
+ * Debug mode: off
+                      INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server         _internal.py:96
+                               instead.[0m                                                                                                                                 
+                                * Running on http://127.0.0.1:5000                                                                                                         
+                      INFO     [33mPress CTRL+C to quit[0m                                                                                                  _internal.py:96
+                      INFO     [Consumer:check-in-class] New client MQTT in broker.emqx.io:1883                                                   uncheck_user_broker.py:33
+                      INFO     [Consumer:check-in-class] Subscribe in check-in-class 📪                                                           uncheck_user_broker.py:44
+CONNECTED IN MQTT SERVER:✔️
+[2024/08/24 14:56;55] INFO     [Repository:class] save new class with begin: 2024-08-24 10:00:00 and end: 2024-08-24 10:00:00 🧾                     class_repository.py:24
+<app.domain.class_schedule.class_schedule.ClassSchedule object at 0x7f00c5a04890>
+                      ERROR    Exception on /class [POST]                                                                                                        app.py:838
+                               ╭────────────────────────────────────────────── Traceback (most recent call last) ──────────────────────────────────────────────╮           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/app.py:880 in full_dispatch_request              │           
+                               │                                                                                                                               │           
+                               │    877 │   │   │   request_started.send(self, _async_wrapper=self.ensure_sync)                                                │           
+                               │    878 │   │   │   rv = self.preprocess_request()                                                                             │           
+                               │    879 │   │   │   if rv is None:                                                                                             │           
+                               │ ❱  880 │   │   │   │   rv = self.dispatch_request()                                                                           │           
+                               │    881 │   │   except Exception as e:                                                                                         │           
+                               │    882 │   │   │   rv = self.handle_user_exception(e)                                                                         │           
+                               │    883 │   │   return self.finalize_request(rv)                                                                               │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/app.py:865 in dispatch_request                   │           
+                               │                                                                                                                               │           
+                               │    862 │   │   │   return self.make_default_options_response()                                                                │           
+                               │    863 │   │   # otherwise dispatch to the handler for that endpoint                                                          │           
+                               │    864 │   │   view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]                                        │           
+                               │ ❱  865 │   │   return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  #                                    │           
+                               │        type: ignore[no-any-return]                                                                                            │           
+                               │    866 │                                                                                                                      │           
+                               │    867 │   def full_dispatch_request(self) -> Response:                                                                       │           
+                               │    868 │   │   """Dispatches the request and on top of that performs request                                                  │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask_restful/__init__.py:489 in wrapper               │           
+                               │                                                                                                                               │           
+                               │   486 │   │   """                                                                                                             │           
+                               │   487 │   │   @wraps(resource)                                                                                                │           
+                               │   488 │   │   def wrapper(*args, **kwargs):                                                                                   │           
+                               │ ❱ 489 │   │   │   resp = resource(*args, **kwargs)                                                                            │           
+                               │   490 │   │   │   if isinstance(resp, ResponseBase):  # There may be a better way to test                                     │           
+                               │   491 │   │   │   │   return resp                                                                                             │           
+                               │   492 │   │   │   data, code, headers = unpack(resp)                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/views.py:110 in view                             │           
+                               │                                                                                                                               │           
+                               │   107 │   │   │   │   self = view.view_class(  # type: ignore[attr-defined]                                                   │           
+                               │   108 │   │   │   │   │   *class_args, **class_kwargs                                                                         │           
+                               │   109 │   │   │   │   )                                                                                                       │           
+                               │ ❱ 110 │   │   │   │   return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type:                                │           
+                               │       ignore[no-any-return]                                                                                                   │           
+                               │   111 │   │                                                                                                                   │           
+                               │   112 │   │   else:                                                                                                           │           
+                               │   113 │   │   │   self = cls(*class_args, **class_kwargs)                                                                     │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask_restful/__init__.py:604 in dispatch_request      │           
+                               │                                                                                                                               │           
+                               │   601 │   │   for decorator in decorators:                                                                                    │           
+                               │   602 │   │   │   meth = decorator(meth)                                                                                      │           
+                               │   603 │   │                                                                                                                   │           
+                               │ ❱ 604 │   │   resp = meth(*args, **kwargs)                                                                                    │           
+                               │   605 │   │                                                                                                                   │           
+                               │   606 │   │   if isinstance(resp, ResponseBase):  # There may be a better way to test                                         │           
+                               │   607 │   │   │   return resp                                                                                                 │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/infrastructure/http/class_uncherdule_resource.py:22 in post             │           
+                               │                                                                                                                               │           
+                               │   19 │   │   data = request.json                                                                                              │           
+                               │   20 │   │   classSchedule = ClassSchedule(name=data['name'],                                                                 │           
+                               │      start=datetime.fromisoformat(data['start']),                                                                             │           
+                               │   21 │   │   │   │   │   │   │   │   │     end=datetime.fromisoformat(data['start']))                                         │           
+                               │ ❱ 22 │   │   self.service.save(classSchedule)                                                                                 │           
+                               │   23 │   │   return {'message': 'class has  been created successfully.'}, 201                                                 │           
+                               │   24                                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/domain/class_schedule/class_scherdule_service.py:20 in save             │           
+                               │                                                                                                                               │           
+                               │   17 │   │   return self.classRepository.findCurrentClass();                                                                  │           
+                               │   18 │                                                                                                                        │           
+                               │   19 │   def save(self, classScherdule):                                                                                      │           
+                               │ ❱ 20 │   │   return self.classRepository.save(classScherdule)                                                                 │           
+                               │   21                                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/infrastructure/database/class_repository.py:26 in save                  │           
+                               │                                                                                                                               │           
+                               │   23 │   def save(self, classSchedule : ClassSchedule):                                                                       │           
+                               │   24 │   │   self.logger.info(f"save new class with begin: {classSchedule.start} and end:                                     │           
+                               │      {classSchedule.end} 🧾")                                                                                                 │           
+                               │   25 │   │   print(classSchedule)                                                                                             │           
+                               │ ❱ 26 │   │   self.mongo[settings.get("MONGO_DATABASE")[self.collection]].insertOne({'name' :                                  │           
+                               │      classSchedule.name,                                                                                                      │           
+                               │   27 │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │      'end':                                    │           
+                               │      classSchedule.end,                                                                                                       │           
+                               │   28 │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   'start':                                 │           
+                               │      classSchedule.start                                                                                                      │           
+                               │   29 │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │      })                                        │           
+                               ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯           
+                               TypeError: string indices must be integers, not 'str'                                                                                       
+                      INFO     127.0.0.1 - - [24/Aug/2024 14:56:55] "[35m[1mPOST /class HTTP/1.1[0m" 500 -                                                  _internal.py:96
+mongo mongodb://root:example@localhost:27017/
+[2024/08/24 14:58;48] INFO     [Consumer:check-in-class] 🚩  Try connect in MQTT Server                                                           uncheck_user_broker.py:30
+ * Debug mode: off
+                      INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server         _internal.py:96
+                               instead.[0m                                                                                                                                 
+                                * Running on http://127.0.0.1:5000                                                                                                         
+                      INFO     [33mPress CTRL+C to quit[0m                                                                                                  _internal.py:96
+                      INFO     [Consumer:check-in-class] New client MQTT in broker.emqx.io:1883                                                   uncheck_user_broker.py:33
+                      INFO     [Consumer:check-in-class] Subscribe in check-in-class 📪                                                           uncheck_user_broker.py:44
+CONNECTED IN MQTT SERVER:✔️
+[2024/08/24 14:58;52] INFO     [Repository:class] save new class with begin: 2024-08-24 10:00:00 and end: 2024-08-24 10:00:00 🧾                     class_repository.py:24
+<app.domain.class_schedule.class_schedule.ClassSchedule object at 0x7f4355ee0b60>
+                      ERROR    Exception on /class [POST]                                                                                                        app.py:838
+                               ╭────────────────────────────────────────────── Traceback (most recent call last) ──────────────────────────────────────────────╮           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/app.py:880 in full_dispatch_request              │           
+                               │                                                                                                                               │           
+                               │    877 │   │   │   request_started.send(self, _async_wrapper=self.ensure_sync)                                                │           
+                               │    878 │   │   │   rv = self.preprocess_request()                                                                             │           
+                               │    879 │   │   │   if rv is None:                                                                                             │           
+                               │ ❱  880 │   │   │   │   rv = self.dispatch_request()                                                                           │           
+                               │    881 │   │   except Exception as e:                                                                                         │           
+                               │    882 │   │   │   rv = self.handle_user_exception(e)                                                                         │           
+                               │    883 │   │   return self.finalize_request(rv)                                                                               │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/app.py:865 in dispatch_request                   │           
+                               │                                                                                                                               │           
+                               │    862 │   │   │   return self.make_default_options_response()                                                                │           
+                               │    863 │   │   # otherwise dispatch to the handler for that endpoint                                                          │           
+                               │    864 │   │   view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]                                        │           
+                               │ ❱  865 │   │   return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  #                                    │           
+                               │        type: ignore[no-any-return]                                                                                            │           
+                               │    866 │                                                                                                                      │           
+                               │    867 │   def full_dispatch_request(self) -> Response:                                                                       │           
+                               │    868 │   │   """Dispatches the request and on top of that performs request                                                  │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask_restful/__init__.py:489 in wrapper               │           
+                               │                                                                                                                               │           
+                               │   486 │   │   """                                                                                                             │           
+                               │   487 │   │   @wraps(resource)                                                                                                │           
+                               │   488 │   │   def wrapper(*args, **kwargs):                                                                                   │           
+                               │ ❱ 489 │   │   │   resp = resource(*args, **kwargs)                                                                            │           
+                               │   490 │   │   │   if isinstance(resp, ResponseBase):  # There may be a better way to test                                     │           
+                               │   491 │   │   │   │   return resp                                                                                             │           
+                               │   492 │   │   │   data, code, headers = unpack(resp)                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/views.py:110 in view                             │           
+                               │                                                                                                                               │           
+                               │   107 │   │   │   │   self = view.view_class(  # type: ignore[attr-defined]                                                   │           
+                               │   108 │   │   │   │   │   *class_args, **class_kwargs                                                                         │           
+                               │   109 │   │   │   │   )                                                                                                       │           
+                               │ ❱ 110 │   │   │   │   return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type:                                │           
+                               │       ignore[no-any-return]                                                                                                   │           
+                               │   111 │   │                                                                                                                   │           
+                               │   112 │   │   else:                                                                                                           │           
+                               │   113 │   │   │   self = cls(*class_args, **class_kwargs)                                                                     │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask_restful/__init__.py:604 in dispatch_request      │           
+                               │                                                                                                                               │           
+                               │   601 │   │   for decorator in decorators:                                                                                    │           
+                               │   602 │   │   │   meth = decorator(meth)                                                                                      │           
+                               │   603 │   │                                                                                                                   │           
+                               │ ❱ 604 │   │   resp = meth(*args, **kwargs)                                                                                    │           
+                               │   605 │   │                                                                                                                   │           
+                               │   606 │   │   if isinstance(resp, ResponseBase):  # There may be a better way to test                                         │           
+                               │   607 │   │   │   return resp                                                                                                 │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/infrastructure/http/class_uncherdule_resource.py:22 in post             │           
+                               │                                                                                                                               │           
+                               │   19 │   │   data = request.json                                                                                              │           
+                               │   20 │   │   classSchedule = ClassSchedule(name=data['name'],                                                                 │           
+                               │      start=datetime.fromisoformat(data['start']),                                                                             │           
+                               │   21 │   │   │   │   │   │   │   │   │     end=datetime.fromisoformat(data['start']))                                         │           
+                               │ ❱ 22 │   │   self.service.save(classSchedule)                                                                                 │           
+                               │   23 │   │   return {'message': 'class has  been created successfully.'}, 201                                                 │           
+                               │   24                                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/domain/class_schedule/class_scherdule_service.py:20 in save             │           
+                               │                                                                                                                               │           
+                               │   17 │   │   return self.classRepository.findCurrentClass();                                                                  │           
+                               │   18 │                                                                                                                        │           
+                               │   19 │   def save(self, classScherdule):                                                                                      │           
+                               │ ❱ 20 │   │   return self.classRepository.save(classScherdule)                                                                 │           
+                               │   21                                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/infrastructure/database/class_repository.py:27 in save                  │           
+                               │                                                                                                                               │           
+                               │   24 │   │   self.logger.info(f"save new class with begin: {classSchedule.start} and end:                                     │           
+                               │      {classSchedule.end} 🧾")                                                                                                 │           
+                               │   25 │   │   pprint(classSchedule)                                                                                            │           
+                               │   26 │   │                                                                                                                    │           
+                               │ ❱ 27 │   │   self.mongo[settings.get("MONGO_DATABASE")[self.collection]].insertOne({'name' :                                  │           
+                               │      classSchedule.name,                                                                                                      │           
+                               │   28 │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │      'end':                                    │           
+                               │      classSchedule.end,                                                                                                       │           
+                               │   29 │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   'start':                                 │           
+                               │      classSchedule.start                                                                                                      │           
+                               │   30 │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │      })                                        │           
+                               ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯           
+                               TypeError: string indices must be integers, not 'str'                                                                                       
+[2024/08/24 14:58;53] INFO     127.0.0.1 - - [24/Aug/2024 14:58:53] "[35m[1mPOST /class HTTP/1.1[0m" 500 -                                                  _internal.py:96
+[2024/08/24 14:59;17] INFO     [Repository:class] save new class with begin: 2024-08-24 10:00:00 and end: 2024-08-24 10:00:00 🧾                     class_repository.py:24
+<app.domain.class_schedule.class_schedule.ClassSchedule object at 0x7f4355ee17f0>
+                      ERROR    Exception on /class [POST]                                                                                                        app.py:838
+                               ╭────────────────────────────────────────────── Traceback (most recent call last) ──────────────────────────────────────────────╮           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/app.py:880 in full_dispatch_request              │           
+                               │                                                                                                                               │           
+                               │    877 │   │   │   request_started.send(self, _async_wrapper=self.ensure_sync)                                                │           
+                               │    878 │   │   │   rv = self.preprocess_request()                                                                             │           
+                               │    879 │   │   │   if rv is None:                                                                                             │           
+                               │ ❱  880 │   │   │   │   rv = self.dispatch_request()                                                                           │           
+                               │    881 │   │   except Exception as e:                                                                                         │           
+                               │    882 │   │   │   rv = self.handle_user_exception(e)                                                                         │           
+                               │    883 │   │   return self.finalize_request(rv)                                                                               │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/app.py:865 in dispatch_request                   │           
+                               │                                                                                                                               │           
+                               │    862 │   │   │   return self.make_default_options_response()                                                                │           
+                               │    863 │   │   # otherwise dispatch to the handler for that endpoint                                                          │           
+                               │    864 │   │   view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]                                        │           
+                               │ ❱  865 │   │   return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  #                                    │           
+                               │        type: ignore[no-any-return]                                                                                            │           
+                               │    866 │                                                                                                                      │           
+                               │    867 │   def full_dispatch_request(self) -> Response:                                                                       │           
+                               │    868 │   │   """Dispatches the request and on top of that performs request                                                  │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask_restful/__init__.py:489 in wrapper               │           
+                               │                                                                                                                               │           
+                               │   486 │   │   """                                                                                                             │           
+                               │   487 │   │   @wraps(resource)                                                                                                │           
+                               │   488 │   │   def wrapper(*args, **kwargs):                                                                                   │           
+                               │ ❱ 489 │   │   │   resp = resource(*args, **kwargs)                                                                            │           
+                               │   490 │   │   │   if isinstance(resp, ResponseBase):  # There may be a better way to test                                     │           
+                               │   491 │   │   │   │   return resp                                                                                             │           
+                               │   492 │   │   │   data, code, headers = unpack(resp)                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/views.py:110 in view                             │           
+                               │                                                                                                                               │           
+                               │   107 │   │   │   │   self = view.view_class(  # type: ignore[attr-defined]                                                   │           
+                               │   108 │   │   │   │   │   *class_args, **class_kwargs                                                                         │           
+                               │   109 │   │   │   │   )                                                                                                       │           
+                               │ ❱ 110 │   │   │   │   return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type:                                │           
+                               │       ignore[no-any-return]                                                                                                   │           
+                               │   111 │   │                                                                                                                   │           
+                               │   112 │   │   else:                                                                                                           │           
+                               │   113 │   │   │   self = cls(*class_args, **class_kwargs)                                                                     │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask_restful/__init__.py:604 in dispatch_request      │           
+                               │                                                                                                                               │           
+                               │   601 │   │   for decorator in decorators:                                                                                    │           
+                               │   602 │   │   │   meth = decorator(meth)                                                                                      │           
+                               │   603 │   │                                                                                                                   │           
+                               │ ❱ 604 │   │   resp = meth(*args, **kwargs)                                                                                    │           
+                               │   605 │   │                                                                                                                   │           
+                               │   606 │   │   if isinstance(resp, ResponseBase):  # There may be a better way to test                                         │           
+                               │   607 │   │   │   return resp                                                                                                 │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/infrastructure/http/class_uncherdule_resource.py:22 in post             │           
+                               │                                                                                                                               │           
+                               │   19 │   │   data = request.json                                                                                              │           
+                               │   20 │   │   classSchedule = ClassSchedule(name=data['name'],                                                                 │           
+                               │      start=datetime.fromisoformat(data['start']),                                                                             │           
+                               │   21 │   │   │   │   │   │   │   │   │     end=datetime.fromisoformat(data['start']))                                         │           
+                               │ ❱ 22 │   │   self.service.save(classSchedule)                                                                                 │           
+                               │   23 │   │   return {'message': 'class has  been created successfully.'}, 201                                                 │           
+                               │   24                                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/domain/class_schedule/class_scherdule_service.py:20 in save             │           
+                               │                                                                                                                               │           
+                               │   17 │   │   return self.classRepository.findCurrentClass();                                                                  │           
+                               │   18 │                                                                                                                        │           
+                               │   19 │   def save(self, classScherdule):                                                                                      │           
+                               │ ❱ 20 │   │   return self.classRepository.save(classScherdule)                                                                 │           
+                               │   21                                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/infrastructure/database/class_repository.py:27 in save                  │           
+                               │                                                                                                                               │           
+                               │   24 │   │   self.logger.info(f"save new class with begin: {classSchedule.start} and end:                                     │           
+                               │      {classSchedule.end} 🧾")                                                                                                 │           
+                               │   25 │   │   pprint(classSchedule)                                                                                            │           
+                               │   26 │   │                                                                                                                    │           
+                               │ ❱ 27 │   │   self.mongo[settings.get("MONGO_DATABASE")[self.collection]].insertOne({'name' :                                  │           
+                               │      classSchedule.name,                                                                                                      │           
+                               │   28 │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │      'end':                                    │           
+                               │      classSchedule.end,                                                                                                       │           
+                               │   29 │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   'start':                                 │           
+                               │      classSchedule.start                                                                                                      │           
+                               │   30 │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │      })                                        │           
+                               ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯           
+                               TypeError: string indices must be integers, not 'str'                                                                                       
+                      INFO     127.0.0.1 - - [24/Aug/2024 14:59:17] "[35m[1mPOST /class HTTP/1.1[0m" 500 -                                                  _internal.py:96
+mongo mongodb://root:example@localhost:27017/
+[2024/08/24 15:10;24] INFO     [Consumer:check-in-class] 🚩  Try connect in MQTT Server                                                           uncheck_user_broker.py:30
+ * Debug mode: off
+                      INFO     [Consumer:check-in-class] New client MQTT in broker.emqx.io:1883                                                   uncheck_user_broker.py:33
+                      INFO     [Consumer:check-in-class] Subscribe in check-in-class 📪                                                           uncheck_user_broker.py:44
+CONNECTED IN MQTT SERVER:✔️
+mongo mongodb://root:example@localhost:27017/
+[2024/08/24 15:35;07] INFO     [Consumer:check-in-class] 🚩  Try connect in MQTT Server                                                           uncheck_user_broker.py:30
+ * Debug mode: off
+                      INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server         _internal.py:96
+                               instead.[0m                                                                                                                                 
+                                * Running on http://127.0.0.1:5000                                                                                                         
+                      INFO     [33mPress CTRL+C to quit[0m                                                                                                  _internal.py:96
+                      INFO     [Consumer:check-in-class] New client MQTT in broker.emqx.io:1883                                                   uncheck_user_broker.py:33
+                      INFO     [Consumer:check-in-class] Subscribe in check-in-class 📪                                                           uncheck_user_broker.py:44
+CONNECTED IN MQTT SERVER:✔️
+[2024/08/24 15:35;19] INFO     [Repository:class] save new class with begin: 2024-08-24 10:00:00 and end: 2024-08-24 10:00:00 🧾                     class_repository.py:24
+<app.domain.class_schedule.class_schedule.ClassSchedule object at 0x7fcdfa9589b0>
+                      ERROR    Exception on /class [POST]                                                                                                        app.py:838
+                               ╭────────────────────────────────────────────── Traceback (most recent call last) ──────────────────────────────────────────────╮           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/app.py:880 in full_dispatch_request              │           
+                               │                                                                                                                               │           
+                               │    877 │   │   │   request_started.send(self, _async_wrapper=self.ensure_sync)                                                │           
+                               │    878 │   │   │   rv = self.preprocess_request()                                                                             │           
+                               │    879 │   │   │   if rv is None:                                                                                             │           
+                               │ ❱  880 │   │   │   │   rv = self.dispatch_request()                                                                           │           
+                               │    881 │   │   except Exception as e:                                                                                         │           
+                               │    882 │   │   │   rv = self.handle_user_exception(e)                                                                         │           
+                               │    883 │   │   return self.finalize_request(rv)                                                                               │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/app.py:865 in dispatch_request                   │           
+                               │                                                                                                                               │           
+                               │    862 │   │   │   return self.make_default_options_response()                                                                │           
+                               │    863 │   │   # otherwise dispatch to the handler for that endpoint                                                          │           
+                               │    864 │   │   view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]                                        │           
+                               │ ❱  865 │   │   return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  #                                    │           
+                               │        type: ignore[no-any-return]                                                                                            │           
+                               │    866 │                                                                                                                      │           
+                               │    867 │   def full_dispatch_request(self) -> Response:                                                                       │           
+                               │    868 │   │   """Dispatches the request and on top of that performs request                                                  │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask_restful/__init__.py:489 in wrapper               │           
+                               │                                                                                                                               │           
+                               │   486 │   │   """                                                                                                             │           
+                               │   487 │   │   @wraps(resource)                                                                                                │           
+                               │   488 │   │   def wrapper(*args, **kwargs):                                                                                   │           
+                               │ ❱ 489 │   │   │   resp = resource(*args, **kwargs)                                                                            │           
+                               │   490 │   │   │   if isinstance(resp, ResponseBase):  # There may be a better way to test                                     │           
+                               │   491 │   │   │   │   return resp                                                                                             │           
+                               │   492 │   │   │   data, code, headers = unpack(resp)                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask/views.py:110 in view                             │           
+                               │                                                                                                                               │           
+                               │   107 │   │   │   │   self = view.view_class(  # type: ignore[attr-defined]                                                   │           
+                               │   108 │   │   │   │   │   *class_args, **class_kwargs                                                                         │           
+                               │   109 │   │   │   │   )                                                                                                       │           
+                               │ ❱ 110 │   │   │   │   return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type:                                │           
+                               │       ignore[no-any-return]                                                                                                   │           
+                               │   111 │   │                                                                                                                   │           
+                               │   112 │   │   else:                                                                                                           │           
+                               │   113 │   │   │   self = cls(*class_args, **class_kwargs)                                                                     │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/flask_restful/__init__.py:604 in dispatch_request      │           
+                               │                                                                                                                               │           
+                               │   601 │   │   for decorator in decorators:                                                                                    │           
+                               │   602 │   │   │   meth = decorator(meth)                                                                                      │           
+                               │   603 │   │                                                                                                                   │           
+                               │ ❱ 604 │   │   resp = meth(*args, **kwargs)                                                                                    │           
+                               │   605 │   │                                                                                                                   │           
+                               │   606 │   │   if isinstance(resp, ResponseBase):  # There may be a better way to test                                         │           
+                               │   607 │   │   │   return resp                                                                                                 │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/infrastructure/http/class_uncherdule_resource.py:22 in post             │           
+                               │                                                                                                                               │           
+                               │   19 │   │   data = request.json                                                                                              │           
+                               │   20 │   │   classSchedule = ClassSchedule(name=data['name'],                                                                 │           
+                               │      start=datetime.fromisoformat(data['start']),                                                                             │           
+                               │   21 │   │   │   │   │   │   │   │   │     end=datetime.fromisoformat(data['start']))                                         │           
+                               │ ❱ 22 │   │   self.service.save(classSchedule)                                                                                 │           
+                               │   23 │   │   return {'message': 'class has  been created successfully.'}, 201                                                 │           
+                               │   24                                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/domain/class_schedule/class_scherdule_service.py:20 in save             │           
+                               │                                                                                                                               │           
+                               │   17 │   │   return self.classRepository.findCurrentClass();                                                                  │           
+                               │   18 │                                                                                                                        │           
+                               │   19 │   def save(self, classScherdule):                                                                                      │           
+                               │ ❱ 20 │   │   return self.classRepository.save(classScherdule)                                                                 │           
+                               │   21                                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/projects/python/check-cefet-refactor/app/infrastructure/database/class_repository.py:27 in save                  │           
+                               │                                                                                                                               │           
+                               │   24 │   │   self.logger.info(f"save new class with begin: {classSchedule.start} and end:                                     │           
+                               │      {classSchedule.end} 🧾")                                                                                                 │           
+                               │   25 │   │   pprint(classSchedule)                                                                                            │           
+                               │   26 │   │                                                                                                                    │           
+                               │ ❱ 27 │   │   self.mongo[settings.get("MONGO_DATABASE")][self.collection].insert_one({                                         │           
+                               │   28 │   │   │   'name': classSchedule.name,                                                                                  │           
+                               │   29 │   │   │   'start': classSchedule.start,                                                                                │           
+                               │   30 │   │   │   'end': classSchedule,                                                                                        │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/collection.py:669 in insert_one                │           
+                               │                                                                                                                               │           
+                               │    666 │   │                                                                                                                  │           
+                               │    667 │   │   write_concern = self._write_concern_for(session)                                                               │           
+                               │    668 │   │   return InsertOneResult(                                                                                        │           
+                               │ ❱  669 │   │   │   self._insert_one(                                                                                          │           
+                               │    670 │   │   │   │   document,                                                                                              │           
+                               │    671 │   │   │   │   ordered=True,                                                                                          │           
+                               │    672 │   │   │   │   write_concern=write_concern,                                                                           │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/collection.py:609 in _insert_one               │           
+                               │                                                                                                                               │           
+                               │    606 │   │   │                                                                                                              │           
+                               │    607 │   │   │   _check_write_command_response(result)                                                                      │           
+                               │    608 │   │                                                                                                                  │           
+                               │ ❱  609 │   │   self.__database.client._retryable_write(acknowledged, _insert_command, session)                                │           
+                               │    610 │   │                                                                                                                  │           
+                               │    611 │   │   if not isinstance(doc, RawBSONDocument):                                                                       │           
+                               │    612 │   │   │   return doc.get("_id")                                                                                      │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/mongo_client.py:1523 in _retryable_write       │           
+                               │                                                                                                                               │           
+                               │   1520 │   │     - `bulk`: bulk abstraction to execute operations in bulk, defaults to None                                   │           
+                               │   1521 │   │   """                                                                                                            │           
+                               │   1522 │   │   with self._tmp_session(session) as s:                                                                          │           
+                               │ ❱ 1523 │   │   │   return self._retry_with_session(retryable, func, s, bulk)                                                  │           
+                               │   1524 │                                                                                                                      │           
+                               │   1525 │   def __eq__(self, other: Any) -> bool:                                                                              │           
+                               │   1526 │   │   if isinstance(other, self.__class__):                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/mongo_client.py:1421 in _retry_with_session    │           
+                               │                                                                                                                               │           
+                               │   1418 │   │   retryable = bool(                                                                                              │           
+                               │   1419 │   │   │   retryable and self.options.retry_writes and session and not                                                │           
+                               │        session.in_transaction                                                                                                 │           
+                               │   1420 │   │   )                                                                                                              │           
+                               │ ❱ 1421 │   │   return self._retry_internal(                                                                                   │           
+                               │   1422 │   │   │   func=func,                                                                                                 │           
+                               │   1423 │   │   │   session=session,                                                                                           │           
+                               │   1424 │   │   │   bulk=bulk,                                                                                                 │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/_csot.py:107 in csot_wrapper                   │           
+                               │                                                                                                                               │           
+                               │   104 │   │   │   if timeout is not None:                                                                                     │           
+                               │   105 │   │   │   │   with _TimeoutContext(timeout):                                                                          │           
+                               │   106 │   │   │   │   │   return func(self, *args, **kwargs)                                                                  │           
+                               │ ❱ 107 │   │   return func(self, *args, **kwargs)                                                                              │           
+                               │   108 │                                                                                                                       │           
+                               │   109 │   return cast(F, csot_wrapper)                                                                                        │           
+                               │   110                                                                                                                         │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/mongo_client.py:1462 in _retry_internal        │           
+                               │                                                                                                                               │           
+                               │   1459 │   │   │   read_pref=read_pref,                                                                                       │           
+                               │   1460 │   │   │   address=address,                                                                                           │           
+                               │   1461 │   │   │   retryable=retryable,                                                                                       │           
+                               │ ❱ 1462 │   │   ).run()                                                                                                        │           
+                               │   1463 │                                                                                                                      │           
+                               │   1464 │   def _retryable_read(                                                                                               │           
+                               │   1465 │   │   self,                                                                                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/mongo_client.py:2315 in run                    │           
+                               │                                                                                                                               │           
+                               │   2312 │   │   while True:                                                                                                    │           
+                               │   2313 │   │   │   self._check_last_error(check_csot=True)                                                                    │           
+                               │   2314 │   │   │   try:                                                                                                       │           
+                               │ ❱ 2315 │   │   │   │   return self._read() if self._is_read else self._write()                                                │           
+                               │   2316 │   │   │   except ServerSelectionTimeoutError:                                                                        │           
+                               │   2317 │   │   │   │   # The application may think the write was never attempted                                              │           
+                               │   2318 │   │   │   │   # if we raise ServerSelectionTimeoutError on the retry                                                 │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/mongo_client.py:2423 in _write                 │           
+                               │                                                                                                                               │           
+                               │   2420 │   │   │   │   │   # not support sessions raise the last error.                                                       │           
+                               │   2421 │   │   │   │   │   self._check_last_error()                                                                           │           
+                               │   2422 │   │   │   │   │   self._retryable = False                                                                            │           
+                               │ ❱ 2423 │   │   │   │   return self._func(self._session, conn, self._retryable)  # type: ignore                                │           
+                               │   2424 │   │   except PyMongoError as exc:                                                                                    │           
+                               │   2425 │   │   │   if not self._retryable:                                                                                    │           
+                               │   2426 │   │   │   │   raise                                                                                                  │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/collection.py:597 in _insert_command           │           
+                               │                                                                                                                               │           
+                               │    594 │   │   │   if bypass_doc_val:                                                                                         │           
+                               │    595 │   │   │   │   command["bypassDocumentValidation"] = True                                                             │           
+                               │    596 │   │   │                                                                                                              │           
+                               │ ❱  597 │   │   │   result = conn.command(                                                                                     │           
+                               │    598 │   │   │   │   self.__database.name,                                                                                  │           
+                               │    599 │   │   │   │   command,                                                                                               │           
+                               │    600 │   │   │   │   write_concern=write_concern,                                                                           │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/helpers.py:322 in inner                        │           
+                               │                                                                                                                               │           
+                               │   319 │   │   from pymongo.pool import Connection                                                                             │           
+                               │   320 │   │                                                                                                                   │           
+                               │   321 │   │   try:                                                                                                            │           
+                               │ ❱ 322 │   │   │   return func(*args, **kwargs)                                                                                │           
+                               │   323 │   │   except OperationFailure as exc:                                                                                 │           
+                               │   324 │   │   │   if no_reauth:                                                                                               │           
+                               │   325 │   │   │   │   raise                                                                                                   │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/pool.py:996 in command                         │           
+                               │                                                                                                                               │           
+                               │    993 │   │   │   raise                                                                                                      │           
+                               │    994 │   │   # Catch socket.error, KeyboardInterrupt, etc. and close ourselves.                                             │           
+                               │    995 │   │   except BaseException as error:                                                                                 │           
+                               │ ❱  996 │   │   │   self._raise_connection_failure(error)                                                                      │           
+                               │    997 │                                                                                                                      │           
+                               │    998 │   def send_message(self, message: bytes, max_doc_size: int) -> None:                                                 │           
+                               │    999 │   │   """Send a raw BSON message or raise ConnectionFailure.                                                         │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/pool.py:968 in command                         │           
+                               │                                                                                                                               │           
+                               │    965 │   │   if self.op_msg_enabled:                                                                                        │           
+                               │    966 │   │   │   self._raise_if_not_writable(unacknowledged)                                                                │           
+                               │    967 │   │   try:                                                                                                           │           
+                               │ ❱  968 │   │   │   return command(                                                                                            │           
+                               │    969 │   │   │   │   self,                                                                                                  │           
+                               │    970 │   │   │   │   dbname,                                                                                                │           
+                               │    971 │   │   │   │   spec,                                                                                                  │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/network.py:151 in command                      │           
+                               │                                                                                                                               │           
+                               │   148 │   if use_op_msg:                                                                                                      │           
+                               │   149 │   │   flags = _OpMsg.MORE_TO_COME if unacknowledged else 0                                                            │           
+                               │   150 │   │   flags |= _OpMsg.EXHAUST_ALLOWED if exhaust_allowed else 0                                                       │           
+                               │ ❱ 151 │   │   request_id, msg, size, max_doc_size = message._op_msg(                                                          │           
+                               │   152 │   │   │   flags, spec, dbname, read_preference, codec_options, ctx=compression_ctx                                    │           
+                               │   153 │   │   )                                                                                                               │           
+                               │   154 │   │   # If this is an unacknowledged write then make sure the encoded doc(s)                                          │           
+                               │                                                                                                                               │           
+                               │ /home/marcos/.asdf/installs/python/3.12.1/lib/python3.12/site-packages/pymongo/message.py:762 in _op_msg                      │           
+                               │                                                                                                                               │           
+                               │    759 │   try:                                                                                                               │           
+                               │    760 │   │   if ctx:                                                                                                        │           
+                               │    761 │   │   │   return _op_msg_compressed(flags, command, identifier, docs, opts, ctx)                                     │           
+                               │ ❱  762 │   │   return _op_msg_uncompressed(flags, command, identifier, docs, opts)                                            │           
+                               │    763 │   finally:                                                                                                           │           
+                               │    764 │   │   # Add the field back to the command.                                                                           │           
+                               │    765 │   │   if identifier:                                                                                                 │           
+                               ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯           
+                               InvalidDocument: cannot encode object: <app.domain.class_schedule.class_schedule.ClassSchedule object at 0x7fcdfa9589b0>, of                
+                               type: <class 'app.domain.class_schedule.class_schedule.ClassSchedule'>                                                                      
+[2024/08/24 15:35;20] INFO     127.0.0.1 - - [24/Aug/2024 15:35:20] "[35m[1mPOST /class HTTP/1.1[0m" 500 -                                                  _internal.py:96
+mongo mongodb://root:example@localhost:27017/
+[2024/08/24 15:38;31] INFO     [Consumer:check-in-class] 🚩  Try connect in MQTT Server                                                           uncheck_user_broker.py:30
+ * Debug mode: off
+                      INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server         _internal.py:96
+                               instead.[0m                                                                                                                                 
+                                * Running on http://127.0.0.1:5000                                                                                                         
+                      INFO     [33mPress CTRL+C to quit[0m                                                                                                  _internal.py:96
+                      INFO     [Consumer:check-in-class] New client MQTT in broker.emqx.io:1883                                                   uncheck_user_broker.py:33
+                      INFO     [Consumer:check-in-class] Subscribe in check-in-class 📪                                                           uncheck_user_broker.py:44
+CONNECTED IN MQTT SERVER:✔️
+[2024/08/24 15:38;33] INFO     [Repository:class] save new class with begin: 2024-08-24 10:00:00 and end: 2024-08-24 10:00:00 🧾                     class_repository.py:24
+<app.domain.class_schedule.class_schedule.ClassSchedule object at 0x7fc6bc9f4aa0>
+                      INFO     127.0.0.1 - - [24/Aug/2024 15:38:33] "[35m[1mPOST /class HTTP/1.1[0m" 201 -                                                  _internal.py:96
+mongo mongodb://root:example@localhost:27017/
+[2024/08/24 15:45;50] INFO     [Consumer:check-in-class] 🚩  Try connect in MQTT Server                                                           uncheck_user_broker.py:30
+ * Debug mode: off
+                      INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server         _internal.py:96
+                               instead.[0m                                                                                                                                 
+                                * Running on http://127.0.0.1:5000                                                                                                         
+                      INFO     [33mPress CTRL+C to quit[0m                                                                                                  _internal.py:96
+                      INFO     [Consumer:check-in-class] New client MQTT in broker.emqx.io:1883                                                   uncheck_user_broker.py:33
+                      INFO     [Consumer:check-in-class] Subscribe in check-in-class 📪                                                           uncheck_user_broker.py:44
+CONNECTED IN MQTT SERVER:✔️
+[2024/08/24 15:45;59] INFO     [Repository:class] save new class with begin: 2024-08-24 10:00:00 and end: 2024-08-24 10:00:00 🧾                     class_repository.py:24
+<app.domain.class_schedule.class_schedule.ClassSchedule object at 0x7ff50e888bc0>
+                      INFO     127.0.0.1 - - [24/Aug/2024 15:45:59] "[35m[1mPOST /class HTTP/1.1[0m" 201 -                                                  _internal.py:96

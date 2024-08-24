@@ -1,4 +1,3 @@
-from app.infrastructure.database.mongo import mongo
 from dynaconf import settings
 from app.domain.study.study import Study
 

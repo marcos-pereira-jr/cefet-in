@@ -1,3 +1,4 @@
+from app.domain import uncheck_user
 from app.infrastructure.database.study_repository import StudyRepository
 from app.domain.uncheck_user.uncheck_user_service import UncheckUserService
 from app.domain.study.study import Study

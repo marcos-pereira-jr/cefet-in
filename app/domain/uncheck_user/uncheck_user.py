@@ -5,4 +5,3 @@ class UncheckUser():
         self._id = _id
         self.linked = linked
         self.deviceId = deviceId
-        self.linked = False
